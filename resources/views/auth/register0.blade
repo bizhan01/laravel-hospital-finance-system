@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>XXX</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="css/registerStyle.css">
+</head>
+<body style="background-color: #999999;">
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
+			</div>
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50 col-sm-12" style="direction: rtl">
+						<!-- login Start -->
+					<center><h2>خوش آمدید</h2></center>
+					<div class="alert alert-danger" style="color: red">
+							@include('layouts.errors')
+         	</div>
+						<form method="POST" action="{{ route('login') }}"  class="login100-form">
+								@csrf
+							<div class="wrap-input100 " style="margin-left: 50px; margin-right: 50px">
+								<span class="label-input100">ایمیل آدرس</span>
+								<input class="input100" type="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="exampleInputEmail" placeholder="someone@domain.com" name="email" value="{{ old('email') }}" required autofocus>
+								<span class="focus-input100"></span>
+							</div>
+
+							<div class="wrap-input100 " style="margin-left: 50px; margin-right: 50px">
+								<span class="label-input100">گذرواژه / پاسورد</span>
+								<input class="input100" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required id="exampleInputPassword" placeholder="*************">
+								<span class="focus-input100"></span>
+							</div>
+
+							<div class="container-login100-form-btn btn" style="margin-right: 140px">
+								<div class="wrap-login100-form-btn">
+									<div class="login100-form-bgbtn"></div>
+									<button class="login100-form-btn" type="submit">
+										وارد شدن
+									</button>
+								</div>
+							</div>
+
+					</form><br></br>
+					<!-- Login End -->
+
+					<!-- Sign Up Start -->
+						<center><h2>همین امروز باما بپویندید</h2></center>
+          <form method="POST" action="{{ route('register') }}"  class="login100-form ">
+              @csrf
+						<div class="wrap-input100 validate-input" data-validate="لطفا اسم تان را وارد کنید">
+							<span class="label-input100">اسم کامل</span>
+							<input class="input100" type="text" name="name" id="name" placeholder="اسم کامل">
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate = "لطفا یک ایمیل آدرس معتبر وارد کنید">
+							<span class="label-input100">ایمیل آدرس</span>
+							<input class="input100" type="text" name="email" id="email" placeholder="someone@domain.com">
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate = "لطفا پاسورد تان را وارد کنید">
+							<span class="label-input100">گذرواژه / پاسورد</span>
+							<input class="input100" type="password" name="password" id="password" placeholder="*************">
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input" data-validate = "لطفا پاسورد تان را تکرار کنید">
+							<span class="label-input100">تکرار گذرواژه / پاسورد</span>
+							<input class="input100" type="password" name="password_confirmation" placeholder="*************">
+							<span class="focus-input100"></span>
+						</div>
+						<input type="hidden" name="isAdmin" value="1">
+
+
+
+					<div class="container-login100-form-btn btn" style="margin-right: 140px">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit">
+								راجستر
+							</button>
+						</div>
+					</div>
+				</form>
+				<!--Sign Up End  -->
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/mainRegister.js"></script>
+</body>
+</html>
